@@ -10,9 +10,8 @@ class Tree{
     }
     display(){
         push()
-        rectMode(CENTER)
-        fill("brown")
-       rect(this.x,this.y,this.width,this.height)
+        imageMode(CENTER)
+       image(this.image,this.x,this.y,this.width,this.height)
        pop()
     }
 }

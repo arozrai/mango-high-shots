@@ -4,14 +4,14 @@ class Boy{
         this.y=y
         this.width=width
         this.height=height
-       this.body = Bodies.rectangle(x,y,width,height)
+        this.image=loadImage("boy.png")
+       this.body = Bodies.rectangle(x,y,width/100,height/100)
        World.add(world,this.body)
     }
     display(){
         push()
-       rectMode(CENTER)
-       fill("black")
-       rect(this.x,this.y,this.width,this.height)
+       imageMode(CENTER)
+       image(this.image,this.x,this.y,this.width,this.height)
        pop()
     }
 }

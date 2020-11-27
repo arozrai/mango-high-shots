@@ -1,14 +1,12 @@
 class Sling{
-    constructor(body1,X,Y){
+    constructor(body1,point1){
        var options={
            bodyA:body1,
-          pointB:{x:X,y:Y},
-          stiffness:0.004,
-          length:10
+          pointB:point1,
+          stiffness:0.02,
+          length:1
        }
       this.body=Matter.Constraint.create(options)
-      this.X=X
-      this.Y=Y
       World.add(world,this.body)
     }
     fly(){
@@ -17,8 +15,13 @@ class Sling{
     display(){
       if (this.body.bodyA){
           var posA=this.body.bodyA.position
+          var posB=this.body.pointB
           strokeWeight(1)
-        line(posA.x,posA.y,this.X,this.Y)
+        line(posA.x,posA.y,posB.x,posB.y)
       }
     }
+    
+}
+function attach(){
+   
 }

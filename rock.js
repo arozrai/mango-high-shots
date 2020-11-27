@@ -6,9 +6,9 @@ class Rock {
           friction:1,
           density:1.2
       }
-      this.body = Bodies.circle(x, y, radius, options);
+      this.body = Bodies.circle(x, y, radius/5, options);
       this.radius = radius
-      
+      this.image=loadImage("stone.png")
       World.add(world, this.body);
     }
     display(){
@@ -16,8 +16,8 @@ class Rock {
       push();
       translate(pos.x, pos.y);
       fill(255,0,255);
-      ellipseMode(RADIUS);
-      ellipse(0, 0, this.radius);
+      imageMode(RADIUS);
+      image(this.image,0, 0, this.radius,this.radius);
       pop();
     }
   };

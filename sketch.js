@@ -21,21 +21,21 @@ function setup() {
 
 	//Create the Bodies Here.
 
-	tree1=new Tree(600,355,300,600)
+	tree1=new Tree(400,355,500,600)
 
 	ground1=new Ground(400,670,800,30)
 
 	boy1=new Boy(100,555,100,200)
 
-	rock1=new Rock(100,400,20)
+	rock1=new Rock(100,400,70)
 
-	sling1=new Sling(rock1.body,80,500)
+	sling1=new Sling(rock1.body,{x:70,y:510})
 
-	mano1=new Mango(500,100,20)
-	mano2=new Mango(530,300,30)
-	mano3=new Mango(450,250,10)
-	mano4=new Mango(500,200,40)
-	mano5=new Mango(600,270,50)
+	mano1=new Mango(350,150,30)
+	mano2=new Mango(350,300,30)
+	mano3=new Mango(300,250,60)
+	mano4=new Mango(330,200,40)
+	mano5=new Mango(400,270,50)
 	Engine.run(engine);
   
 }
@@ -61,6 +61,7 @@ function draw() {
   detectCollision(rock1,mano3)
   detectCollision(rock1,mano4)
   detectCollision(rock1,mano5)
+
   drawSprites()
 }
 
@@ -73,11 +74,17 @@ function mouseReleased(){
 }
 
 function detectCollision(lrock,lmano){
-	manoBodyPosition=lmano.body.position
+	manoBodyBodyPosition=lmano.body.position
 	rockBodyPosition=lrock.body.position
-	var distance=dist(rockBodyPosition.x,rockBodyPosition.y,manoBodyPosition.x,manoBodyPosition.y)
-		if(distance<=lmano.radius+lrock.radius){
-            Matter.Body.setStatic(lmano.body,false)
-		}
-	
+	var distance=dist(rockBodyPosition.x,rockBodyPosition.y,manoBodyBodyPosition.x,manoBodyBodyPosition.y)
+	if(distance<=lmano.radius+lrock.radius){
+       Matter.Body.setStatic(lmano.body,false)
+	}
+}
+
+function keyPressed(){
+	if(keyCode===space){
+		Mater.Body.setPosition(rock1.body,{x:100,y:400})
+		sling1.attach(rock1.body)
+	}
 }

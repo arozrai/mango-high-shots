@@ -7,14 +7,17 @@ class Mango{
       }
       this.x=x
       this.y=y
+      this.image=loadImage("mango.png")
+      this.body=Matter.Bodies.circle(x,y,radius/2,options)
       this.radius=radius
-      this.body=Matter.Bodies.circle(x,y,radius,options)
+      World.add(world,this.body)
     }
     display(){
+      this.pos=this.body.position
         push()
-      ellipseMode(RADIUS)
-      fill("orange")
-      ellipse(this.x,this.y,this.radius)
+        translate(this.pos.x,this.pos.y)
+      imageMode(RADIUS)
+      image(this.image,0,0,this.radius,this.radius)
       pop()
     }
 }
