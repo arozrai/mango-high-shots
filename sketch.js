@@ -83,8 +83,7 @@ function detectCollision(lrock,lmano){
 }
 
 function keyPressed(){
-	if(keyCode===space){
-		Mater.Body.setPosition(rock1.body,{x:100,y:400})
+	if(keyCode===32){
 		sling1.attach(rock1.body)
 	}
 }

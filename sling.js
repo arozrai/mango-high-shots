@@ -12,6 +12,9 @@ class Sling{
     fly(){
       this.body.bodyA=null
     }
+    attach(body){
+      this.body.bodyA=body
+    }
     display(){
       if (this.body.bodyA){
           var posA=this.body.bodyA.position
@@ -21,7 +24,4 @@ class Sling{
       }
     }
     
-}
-function attach(){
-   
 }

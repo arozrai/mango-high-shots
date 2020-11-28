@@ -16,7 +16,7 @@ class Rock {
       push();
       translate(pos.x, pos.y);
       fill(255,0,255);
-      imageMode(RADIUS);
+      imageMode(CENTER);
       image(this.image,0, 0, this.radius,this.radius);
       pop();
     }
